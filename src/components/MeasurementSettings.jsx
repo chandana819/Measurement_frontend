@@ -54,7 +54,8 @@ export default function MeasurementSettings({ profiles, onAdd, onUpdate, onDelet
 
   return (
     <div className="grid grid-cols-12 gap-6">
-      <div className="col-span-5">
+      {/* Left column: full width on small, ~5/12 on md+ */}
+      <div className="col-span-12 md:col-span-5">
         <h2 className="text-2xl font-semibold mb-6">Measurement Settings</h2>
         <ProfileList
           profiles={profiles}
@@ -67,7 +68,8 @@ export default function MeasurementSettings({ profiles, onAdd, onUpdate, onDelet
         </button>
       </div>
 
-      <div className="col-span-7">
+  {/* Right column: full width on small, ~7/12 on md+ */}
+  <div className="col-span-12 md:col-span-7">
         {/* Right panel: form shown as a card/modal */}
         {showForm ? (
           <div className="card p-6">
@@ -82,7 +84,7 @@ export default function MeasurementSettings({ profiles, onAdd, onUpdate, onDelet
       </div>
 
       {/* Delete confirmation modal */}
-      {confirmDelete && (
+  {confirmDelete && (
         <Modal onClose={() => setConfirmDelete(null)}>
           <div className="p-6 text-center">
             <h3 className="text-lg font-semibold mb-3">Are you sure you want to delete "{confirmDelete.name}" measurement profile?</h3>
@@ -99,7 +101,8 @@ export default function MeasurementSettings({ profiles, onAdd, onUpdate, onDelet
       {confirmationHtml && (
         <Modal onClose={() => setConfirmationHtml(null)}>
           <div className="p-4">
-            <iframe title="saved-confirmation" srcDoc={confirmationHtml} className="w-full h-72 border rounded" />
+            {/* iframe taller on md screens for better readability */}
+            <iframe title="saved-confirmation" srcDoc={confirmationHtml} className="w-full h-72 md:h-96 border rounded" />
             <div className="mt-4 text-center">
               <button onClick={() => setConfirmationHtml(null)} className="btn-red">Back To Settings</button>
             </div>

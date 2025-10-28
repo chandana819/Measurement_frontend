@@ -65,9 +65,9 @@ export default function ProfileForm({ initial, onCancel, onSave }) {
         <textarea value={note} onChange={(e)=>setNote(e.target.value)} className="w-full border rounded px-3 py-2 h-24" placeholder="Write something..."></textarea>
       </div>
 
-      <div className="pt-4">
-        <button type="submit" className="w-full btn-red">Save Measurement</button>
-        <button type="button" onClick={onCancel} className="w-full mt-3 border rounded-full px-4 py-2">Cancel</button>
+      <div className="pt-4 flex flex-col sm:flex-row gap-3">
+        <button type="submit" className="w-full sm:w-auto btn-red">Save Measurement</button>
+        <button type="button" onClick={onCancel} className="w-full sm:w-auto mt-0 sm:ml-2 border rounded-full px-4 py-2">Cancel</button>
       </div>
     </form>
   )
