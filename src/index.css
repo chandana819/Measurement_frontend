@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* small custom styles for the UI look
+   Using plain CSS instead of @apply to avoid unknown-rule lint warnings
+   while keeping a close visual match. Tailwind utilities are still available
+   in JSX via className. */
+.card {
+  background-color: #ffffff;
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 1px 2px rgba(16,24,40,0.05), 0 1px 3px rgba(16,24,40,0.06);
+}
+
+.btn-red {
+  background-color: #dc2626; /* red-600 */
+  color: #ffffff;
+  border-radius: 9999px; /* rounded-full */
+  padding: 0.5rem 1.5rem; /* px-6 py-2 roughly */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  display: inline-block;
+}
+
