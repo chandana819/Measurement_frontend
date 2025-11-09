@@ -10,20 +10,26 @@ function Avatar({ name }) {
 }
 
 export default function ProfileItem({ profile, onEdit, onDelete }) {
+  const isPrimary = String(profile.name).trim().toLowerCase() === 'me'
+
   return (
     <div className="flex items-center gap-4 w-full">
       <Avatar name={profile.name} />
       <div className="flex-1 min-w-0">
         <div className="font-medium truncate">{profile.name} <span className="text-gray-400 text-sm">{profile.gender === 'male' ? '♂' : '♀'}</span></div>
-        <div className="text-sm text-gray-500">(optional) 5 profiles can be saved</div>
+        {/* Only show the optional hint for the primary profile */}
+        {isPrimary && <div className="text-sm text-gray-500">(optional) 5 profiles can be saved</div>}
       </div>
       <div className="flex items-center gap-2">
         <button onClick={onEdit} className="p-2 rounded-full hover:bg-gray-100">
           ✎
         </button>
-        <button onClick={onDelete} className="p-2 rounded-full hover:bg-gray-100 text-red-500">
-          🗑
-        </button>
+        {/* Hide delete button for primary profile */}
+        {!isPrimary && (
+          <button onClick={onDelete} className="p-2 rounded-full hover:bg-gray-100 text-red-500">
+            🗑
+          </button>
+        )}
       </div>
     </div>
   )

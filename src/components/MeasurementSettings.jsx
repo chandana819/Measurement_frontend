@@ -76,10 +76,8 @@ export default function MeasurementSettings({ profiles, onAdd, onUpdate, onDelet
             <ProfileForm initial={editing} onCancel={() => setShowForm(false)} onSave={handleSave} />
           </div>
         ) : (
-          <div className="card p-6">
-            <h3 className="font-semibold text-lg">Select a profile to edit or add a new profile</h3>
-            <p className="text-sm text-gray-500 mt-2">(optional) 5 profiles can be saved</p>
-          </div>
+          // Right side should be empty when nothing is selected/being added
+          <div className="card p-6 min-h-[220px] bg-white/0 border-0 shadow-none" />
         )}
       </div>
 
