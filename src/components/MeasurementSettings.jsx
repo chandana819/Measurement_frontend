@@ -75,10 +75,7 @@ export default function MeasurementSettings({ profiles, onAdd, onUpdate, onDelet
           <div className="card p-6">
             <ProfileForm initial={editing} onCancel={() => setShowForm(false)} onSave={handleSave} />
           </div>
-        ) : (
-          // Right side should be empty when nothing is selected/being added
-          <div className="card p-6 min-h-[220px] bg-white/0 border-0 shadow-none" />
-        )}
+        ) : null }
       </div>
 
       {/* Delete confirmation modal */}
