@@ -23,9 +23,12 @@ export default function ProfileItem({ profile, onEdit, onDelete }) {
         <button onClick={onEdit} className="p-2 rounded-full hover:bg-gray-100">
           ✎
         </button>
+        {/* Do not render Delete for the primary profile */}
+        {!isPrimary && (
           <button onClick={onDelete} className="p-2 rounded-full hover:bg-gray-100 text-red-500">
             🗑
           </button>
+        )}
       </div>
     </div>
   )
